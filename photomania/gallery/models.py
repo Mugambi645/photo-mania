@@ -27,12 +27,17 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
 
-
+#category choices
+category_choices = (
+    ("NATURE", "nature"),
+    ("CULTURE", "culture"),
+    ("SCIENCE", "science"),
+)
 class Category(models.Model):
     """
     Category class to define category model
     """
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, choices=category_choices)
 
     def __str__(self):
         return self.name
