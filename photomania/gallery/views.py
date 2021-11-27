@@ -22,3 +22,10 @@ def search_results(request):
     else:
         message = "You haven't searched for any image.Please search again"
         return render(request, 'pics/search_results.html', {"message": message})
+
+
+def gallery(request):
+    images = Image.objects.all()
+    locations = Location.get_locations()
+    print(locations)
+    return render(request, 'index.html', {'images': images[::-1], 'locations': locations})

@@ -7,6 +7,7 @@ app_name = "gallery"
 urlpatterns = [
     path('search/', views.search_results, name='search'),
     path('location/', views.image_location, name='location'),
+    path('gallery/', views.gallery, name = "gallery"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
