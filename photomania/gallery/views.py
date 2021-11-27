@@ -28,4 +28,4 @@ def gallery(request):
     images = Image.objects.all()
     locations = Location.get_locations()
     print(locations)
-    return render(request, 'index.html', {'images': images[::-1], 'locations': locations})
+    return render(request, 'gallery.html', {'images': images[::-1], 'locations': locations})
