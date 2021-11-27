@@ -4,9 +4,12 @@ from django.shortcuts import render
 from .models import Image, Location
 
 def image_location(request, location):
+    """
+    function to filter by location
+    """
     images = Image.filter_by_location(location)
     print(images)
-    return render(request, 'pictures/location.html', {'location_images': images})
+    return render(request, 'pics/location.html', {'location_images': images})
 
 
 def search_results(request):
@@ -15,7 +18,7 @@ def search_results(request):
         searched_images = Image.search_by_category(category)
         message = f"{category}"
         print(searched_images)
-        return render(request, 'pictures/search_results.html', {"message": message, "images": searched_images})
+        return render(request, 'pics/search_results.html', {"message": message, "images": searched_images})
     else:
-        message = "You haven't searched for any image category"
-        return render(request, 'pictures/search_results.html', {"message": message})
+        message = "You haven't searched for any image.Please search again"
+        return render(request, 'pics/search_results.html', {"message": message})
