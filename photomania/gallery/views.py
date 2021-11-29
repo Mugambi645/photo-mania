@@ -20,7 +20,7 @@ def search_results(request):
         print(searched_images)
         return render(request, 'search_results.html', {"message": message, "images": searched_images})
     else:
-        message = "You haven't searched for any image.Please search again"
+        message = "You haven't searched for any category.Please search again"
         return render(request, 'search_results.html', {"message": message})
 
 
