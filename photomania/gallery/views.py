@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Category
 # Create your views here.
 from .models import Image, Location
 
@@ -11,17 +11,16 @@ def image_location(request, location):
     print(images)
     return render(request, 'location.html', {'location_images': images})
 
-
 def search_results(request):
-    if 'imagesearch' in request.GET and request.GET["imagesearch"]:
-        category = request.GET.get("imagesearch")
-        searched_images = Image.search_by_category(category)
-        message = f"{category}"
-        print(searched_images)
-        return render(request, 'search_results.html', {"message": message, "images": searched_images})
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
+        searched_category = Category.search_by_category(search_term)
+        message = f"{search_term}"
+        return render(request, 'search_results.html',{"message":message,"category": searched_category})
     else:
-        message = "You haven't searched for any category.Please search again"
-        return render(request, 'search_results.html', {"message": message})
+        message = "You haven't searched for any term"
+        return render(request, 'search_results.html',{"message":message})
+
 
 
 def gallery(request):
