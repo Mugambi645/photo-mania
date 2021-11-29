@@ -18,7 +18,7 @@
       font-family: 'Kalam', cursive;"></h5>
       <p class="card-text" style="font-family: 'Gluten', cursive;
       font-family: 'Kalam', cursive;">Welcome to PhotoMania.Pictures are a powerful way to express out ideas rather absatract or real.Check out some of my pictures on my loved topics.You can also copy the image url to download it to your personal computer or phone!</p>
-      <a href="#" class="btn btn-primary" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">View Gallery</a>
+      <div id="bottom" class="btn btn-primary" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" >View Gallery</div>
     </div>
     <div class="card-footer text-muted">
    </div>
@@ -89,7 +89,18 @@
   </div>
 </div>
 </div>
+<script>
+    function top() {
+    document.getElementById( 'top' ).scrollIntoView();    
+};
 
+function bottom() {
+    document.getElementById( 'bottom' ).scrollIntoView();
+    window.setTimeout( function () { top(); }, 2000 );
+};
+
+bottom();
+</script>
 
 
 </div>
